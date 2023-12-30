@@ -1,0 +1,31 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TestCasesPageTest {
+    public static void main(String[] args) {
+        // Set the path to your ChromeDriver executable
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver.exe");
+
+        // Instantiate ChromeDriver
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the test cases page
+        driver.get("https://automationexercise.com/test_cases");
+
+        // Find specific elements on the page and perform assertions or verifications
+        WebElement pageTitle = driver.findElement(By.xpath("//h1[contains(text(), 'Test Cases')]"));
+        String expectedTitle = "Test Cases";
+        String actualTitle = pageTitle.getText();
+
+        if (actualTitle.equals(expectedTitle)) {
+            System.out.println("Test Cases page is displayed correctly.");
+        } else {
+            System.out.println("Test Cases page is not displayed correctly.");
+        }
+
+        // Close the browser
+        driver.quit();
+    }
+}
